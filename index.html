@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map: 1990 vs 2024</title>
+    <title>Al-Ahwar Interactive Map</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="app-container">
+    <div id="loader-overlay">
+        <div class="loader-content">
+            <h1>Al-Ahwar Map Project</h1>
+            <p>Loading High-Resolution Layers...</p>
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="progress-text">0%</div>
+        </div>
+    </div>
+
+    <div class="app-container" id="main-app" style="visibility: hidden;">
         <main class="map-viewport">
-            <div id="map-stack">
-                </div>
+            <div id="map-stack"></div>
         </main>
 
         <aside class="sidebar">
-            <h2 class="sidebar-title">Al Ahwar Map Controls</h2>
+            <h2 class="sidebar-title">Map Controls</h2>
             
             <div class="control-group">
                 <h3>Survey Year</h3>
@@ -44,29 +54,16 @@
             <div class="control-group">
                 <label class="check-item">
                     <input type="checkbox" class="layer-cb" data-layer="border" onchange="updateMap()">
-                    <span class="custom-check"></span>
-                    Borders
+                    <span class="custom-check"></span> Borders
                 </label>
             </div>
 
             <div id="texture-details" class="sub-menu hidden">
                 <h3 class="sub-title">Texture Layers</h3>
-                <label class="check-item">
-                    <input type="checkbox" class="layer-cb" data-layer="marshes" onchange="updateMap()">
-                    <span class="custom-check"></span> Marshes
-                </label>
-                <label class="check-item">
-                    <input type="checkbox" class="layer-cb" data-layer="veg" data-blend="linear" onchange="updateMap()">
-                    <span class="custom-check"></span> Vegetation (Linear Burn)
-                </label>
-                <label class="check-item">
-                    <input type="checkbox" class="layer-cb" data-layer="water" data-blend="linear" onchange="updateMap()">
-                    <span class="custom-check"></span> Water (Linear Burn)
-                </label>
-                <label class="check-item">
-                    <input type="checkbox" class="layer-cb" data-layer="pop" data-blend="linear" onchange="updateMap()">
-                    <span class="custom-check"></span> Population (Linear Burn)
-                </label>
+                <label class="check-item"><input type="checkbox" class="layer-cb" data-layer="marshes" onchange="updateMap()"><span class="custom-check"></span> Marshes</label>
+                <label class="check-item"><input type="checkbox" class="layer-cb" data-layer="veg" data-blend="linear" onchange="updateMap()"><span class="custom-check"></span> Vegetation</label>
+                <label class="check-item"><input type="checkbox" class="layer-cb" data-layer="water" data-blend="linear" onchange="updateMap()"><span class="custom-check"></span> Water</label>
+                <label class="check-item"><input type="checkbox" class="layer-cb" data-layer="pop" data-blend="linear" onchange="updateMap()"><span class="custom-check"></span> Population</label>
             </div>
 
             <hr class="divider">
@@ -78,10 +75,6 @@
                 <label class="check-item"><input type="checkbox" class="layer-cb" data-layer="rivers" onchange="updateMap()"><span class="custom-check"></span> Rivers</label>
                 <label class="check-item"><input type="checkbox" class="layer-cb" data-layer="pumps" onchange="updateMap()"><span class="custom-check"></span> Pumps</label>
             </div>
-
-            <hr class="divider">
-
-            <h3 class="sub-title">Made by Khalid Hawilleh for Vertical Design Studio</h3>
         </aside>
     </div>
 
