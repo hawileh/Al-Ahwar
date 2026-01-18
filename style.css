@@ -1,0 +1,103 @@
+/* General Layout */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #121212; color: #ececec; height: 100vh; overflow: hidden; }
+
+.app-container { display: flex; height: 100%; width: 100%; }
+
+/* Map Display Area */
+.map-viewport {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: #1e1e1e;
+}
+
+#map-stack {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    aspect-ratio: 2320 / 1955;
+    background: #000;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Linear Burn Blending Mode */
+.linear-burn { mix-blend-mode: multiply; }
+
+/* Sidebar Styling */
+.sidebar {
+    width: 340px;
+    background: #181818;
+    padding: 30px;
+    border-left: 1px solid #333;
+    overflow-y: auto;
+}
+
+.sidebar-title { font-size: 1.4rem; color: #00d1b2; margin-top: 0; margin-bottom: 30px; }
+h3 { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.divider { border: 0; border-top: 1px solid #333; margin: 25px 0; }
+
+/* Segmented Toggle Switches */
+.toggle-switch {
+    display: flex;
+    position: relative;
+    background: #252525;
+    border-radius: 10px;
+    padding: 3px;
+    border: 1px solid #444;
+    margin-bottom: 20px;
+}
+
+.toggle-switch input { display: none; }
+
+.toggle-switch label {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.switch-slider {
+    position: absolute;
+    top: 3px; left: 3px;
+    width: calc(50% - 3px);
+    height: calc(100% - 6px);
+    background: #00d1b2;
+    border-radius: 7px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+#year-2024:checked ~ .switch-slider,
+#base-tex:checked ~ .switch-slider { transform: translateX(100%); }
+
+.toggle-switch input:checked + label { color: #000; }
+
+/* Checkbox Items */
+.check-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.check-item input { margin-right: 12px; transform: scale(1.2); cursor: pointer; }
+.hidden { display: none; }
+.sub-menu { padding-left: 10px; border-left: 2px solid #00d1b2; margin-top: 15px; }
