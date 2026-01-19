@@ -11,6 +11,7 @@
     <div id="loader-overlay">
         <div class="loader-content">
             <h1>Al-Ahwar Map Project</h1>
+            <h4>Developed by Khalid Hawilleh</h4>
             <p>Loading High-Resolution Layers...</p>
             <div class="progress-container">
                 <div id="progress-bar"></div>
@@ -25,8 +26,12 @@
         </main>
 
         <aside class="sidebar">
-            <h2 class="sidebar-title">Map Controls</h2>
+            <h2 class="sidebar-title">Al-Ahwar Map Controls</h2>
             
+            <div margin-left="auto" margin-right="auto">
+                <img class="center" src="assets/Iraq.png" alt="">
+            </div>
+
             <div class="control-group">
                 <h3>Survey Year</h3>
                 <div class="toggle-switch">
@@ -69,12 +74,18 @@
             <hr class="divider">
 
             <div class="control-group">
-                <h3 class="sub-title">Global Overlays</h3>
+                <h3 class="sub-title">Global Layers</h3>
                 <label class="check-item"><input type="checkbox" class="layer-cb" data-layer="roads" onchange="updateMap()"><span class="custom-check"></span> Roads</label>
                 <label class="check-item"><input type="checkbox" class="layer-cb" data-layer="cities" onchange="updateMap()"><span class="custom-check"></span> Cities</label>
                 <label class="check-item"><input type="checkbox" class="layer-cb" data-layer="rivers" onchange="updateMap()"><span class="custom-check"></span> Rivers</label>
                 <label class="check-item"><input type="checkbox" class="layer-cb" data-layer="pumps" onchange="updateMap()"><span class="custom-check"></span> Pumps</label>
             </div>
+
+            <hr class="divider">
+            <h3 class="sub-title">NOTE</h3>
+            <p>These layers were developed from a combination of sources, mainly from Google Earth Engine (NDVI, NDWI, Depop, Copernicus), & UN Maps.</p>
+            <br>
+            <p>Khalid Hawilleh©</p>
         </aside>
     </div>
 

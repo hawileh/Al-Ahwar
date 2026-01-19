@@ -70,3 +70,14 @@ h3 { font-size: 0.85rem; color: #888; text-transform: uppercase; margin-bottom: 
 .check-item input { margin-right: 12px; }
 .hidden { display: none; }
 .sub-menu { padding-left: 10px; border-left: 2px solid #00d1b2; margin-top: 15px; }
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px; /* Optional: set a width smaller than the container's width */
+}
+
+p {
+    font-size: 12px;
+}
